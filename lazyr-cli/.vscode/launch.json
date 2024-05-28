@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:lazyr-cli}",
+            "name": "Debug lazyr-cli",
+            "program": "${workspaceFolder:lazyr-cli}/.build/debug/lazyr-cli",
+            "preLaunchTask": "swift: Build Debug lazyr-cli"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:lazyr-cli}",
+            "name": "Release lazyr-cli",
+            "program": "${workspaceFolder:lazyr-cli}/.build/release/lazyr-cli",
+            "preLaunchTask": "swift: Build Release lazyr-cli"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+
+# Extension to main docker-compose.yml
+
+services:
+
+  lazyr-cli-devcontainer:
+    build: 
+      context: lazyr-cli
+      dockerfile: devcontainer.Dockerfile
+    environment:
+      LAZYR_CLI_CONF_DIR: ~/.lazyr.config
+    volumes:
+      - ./lazyr-cli:/root/lazyr-cli
+      - ./lazyr-lib:/root/lazyr-lib
+      - ./modules:/root/modules
+    networks:
+      - flogram-internal
+
+  lazyr-lib-devcontainer:
+    build: 
+      context: lazyr-lib
+      dockerfile: devcontainer.Dockerfile
+    volumes:
+      - ./lazyr-lib:/root/lazyr-lib
+    networks:
+      - flogram-internal

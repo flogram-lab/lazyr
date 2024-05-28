@@ -1,0 +1,3 @@
+[submodule "modules/wayout"]
+	path = modules/wayout
+	url = https://github.com/flogram-lab/wayout.git

@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+message Mashup {
+    int32 flags = 1;
+}
+
+service LazyrService {
+    rpc GetMashups(google.protobuf.Empty) returns (stream Mashup);
+    rpc QueryMashupMessages(Mashup) returns (stream FLO_MESSAGE);
+}

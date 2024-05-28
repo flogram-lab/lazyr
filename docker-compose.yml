@@ -1,0 +1,34 @@
+
+volumes:
+  lazyr-cli-config:
+
+networks:
+  default:
+  flogram-internal:
+    external: true
+
+services:
+
+  protoc-swift:
+    profiles:
+      - protoc
+    build:
+      context: .
+      dockerfile: protoc.swift.Dockerfile
+    volumes:
+      - ./:/source
+    restart: no
+
+  lazyr-cli:
+    profiles:
+      - tools
+    build:
+      context: .
+      dockerfile: lazyr-cli.Dockerfile
+    environment:
+      LAZYR_CLI_CONF_DIR: /var/lib/flogram/lazyr.config
+    volumes:
+      - lazyr-cli-config:/var/lib/flogram/lazyr.config
+    restart: no
+    networks:
+      - flogram-internal
